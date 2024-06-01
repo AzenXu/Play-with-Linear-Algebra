@@ -9,6 +9,8 @@ class Vector:
             "Error in adding. Length of vectors must be same."
 
         # return Vector([a + b for a, b in zip(self._values, another._values)])
+        # 上面，不够pythonic
+        # 通过重载__iter__，可实现下面
         return Vector([a + b for a, b in zip(self, another)])
 
     def __sub__(self, another):
@@ -19,18 +21,30 @@ class Vector:
         return Vector([a - b for a, b in zip(self, another)])
 
     def __mul__(self, k):
+        """
+            重载以定义左乘。
+            允许向量在数值前面进行乘法运算，例如：
+            v * 2
+        """
         """返回数量乘法的结果向量：self * k"""
         return Vector([k * e for e in self])
 
     def __rmul__(self, k):
-        """返回数量乘法的结果向量：k * self"""
+        """
+        定义右乘。
+            允许向量在数值前面进行乘法运算，例如：
+            2 * v
+        返回数量乘法的结果向量：k * self
+        """
         return self * k
 
     def __pos__(self):
+        """向量对象前加+号，如何返回"""
         """返回向量取正的结果向量"""
         return 1 * self
 
     def __neg__(self):
+        """向量对象前加-号，如何返回"""
         """返回向量取负的结果向量"""
         return -1 * self
 

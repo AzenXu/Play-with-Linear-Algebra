@@ -4,7 +4,8 @@ if __name__ == "__main__":
 
     print(np.__version__)
 
-    # np.array 基础
+    # np.array 基础(创建向量对象)
+
     lst = [1, 2, 3]
     lst[0] = "Linear Algebra"
     print(lst)

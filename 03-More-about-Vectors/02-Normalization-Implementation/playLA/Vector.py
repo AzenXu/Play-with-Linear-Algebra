@@ -27,12 +27,16 @@ class Vector:
         return Vector([a - b for a, b in zip(self, another)])
 
     def norm(self):
-        """返回向量的模"""
+        """求：向量的模
+
+        各个分量的平方和,开根
+        """
         return math.sqrt(sum(e**2 for e in self))
 
     def normalize(self):
         """返回向量的单位向量"""
         if self.norm() < EPSILON:
+            # 防止除零报错
             raise ZeroDivisionError("Normalize error! norm is zero.")
         return Vector(self._values) / self.norm()
         # return 1 / self.norm() * Vector(self._values)
@@ -47,7 +51,11 @@ class Vector:
         return self * k
 
     def __truediv__(self, k):
-        """返回数量除法的结果向量：self / k"""
+        """
+        返回数量除法的结果向量：self / k
+
+        
+        """
         return (1 / k) * self
 
     def __pos__(self):

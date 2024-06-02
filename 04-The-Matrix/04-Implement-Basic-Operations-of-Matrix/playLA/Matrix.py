@@ -13,6 +13,7 @@ class Matrix:
 
     def __add__(self, another):
         """返回两个矩阵的加法结果"""
+        # 要求：两个矩阵的形状必须相同
         assert self.shape() == another.shape(), \
             "Error in adding. Shape of matrix must be same."
         return Matrix([[a + b for a, b in zip(self.row_vector(i), another.row_vector(i))]

@@ -37,10 +37,12 @@ class Vector:
         return Vector(self._values) / self.norm()
 
     def dot(self, another):
+        # 这里这里这里~~~~
         """向量点乘，返回结果标量"""
         assert len(self) == len(another), \
             "Error in dot product. Length of vectors must be same."
 
+        # 点乘：对应相乘，然后求和
         return sum(a * b for a, b in zip(self, another))
 
     def __mul__(self, k):
